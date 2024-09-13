@@ -1,0 +1,24 @@
+<h1>Form</h1>
+
+<form id="myForm" method="POST" action="{% url 'form' %}">
+    {% csrf_token %}
+    <select name="age" id="cars">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Saab</option>
+        <option value="mercedes">Mercedes</option>
+        <option value="audi">Audi</option>
+    </select>
+    <br />
+    <input type="submit" />
+</form>
+
+{% if age %}
+    <h1>{{age}}</h1>
+{% endif %}
+
+<script>
+    document.getElementById('cars').addEventListener('change',function(){
+        document.getElementById('myForm').submit()
+    })
+</script>
+   
